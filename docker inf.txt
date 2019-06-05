@@ -1,0 +1,11 @@
+#Remove all containers
+docker rm -f $ (docker ps -q -a) 
+
+#Remove all images
+docker rmi -f $ (docker images -q)
+
+#Execute scripts in docker container as root
+docker exec -u 0 -it <containerid> sh
+
+#Remove all images without tags
+docker rmi -f $(docker images -f "dangling=true" -q)
