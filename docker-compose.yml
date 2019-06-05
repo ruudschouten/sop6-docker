@@ -1,5 +1,17 @@
 version: "3.4"
 services:
+  artifactory:
+    container_name: "artifactory"
+    image: docker.bintray.io/jfrog/artifactory-oss:latest
+    ports: 
+      - 8083:8081
+    volumes:
+      - ./artifactory/data:/var/opt/jfrog/artifactory
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 32000
+        hard: 40000
   jenkins:
     container_name: "jenkins"
     image: "jenkins/jenkins:lts"
@@ -8,7 +20,6 @@ services:
       - 5050:50000
     volumes:
       - ./jenkins:/var/jenkins_home
-      - payara_deploy:/var/jenkins_home/workspace/twatter_master/target
   sonarqube:
     container_name: "sonarqube"
     image: "sonarqube"

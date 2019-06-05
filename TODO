@@ -1,0 +1,4 @@
+Use Jenkins artifactory plugin to send artifact/archive to Artifactory.
+Use that to deploy to Payara https://www.jfrog.com/confluence/display/RTF/Deploying+Artifacts
+???
+Done

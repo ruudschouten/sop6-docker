@@ -1,0 +1,1 @@
+docker run --rm -it -v=payara_deploy:/tmp/myvolume alpine ls -al /tmp/myvolume
