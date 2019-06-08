@@ -32,5 +32,3 @@ Daarna kun je `docker` aanroepen binnen je Jenkinsfile
 
 Dit werkte nu prima
 
-Nu moesten we dit project nog zippen en archiveren.
-Hiervoor hebben we de Pipeline Utility Steps moeten downloaden waardoor `zip` gebruikt kan worden.
