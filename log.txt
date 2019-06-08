@@ -1,0 +1,36 @@
+Artifactory image toegevoegd aan docker-compose
+Mappen aangemaakt die Artifactory nodig heeft;
+ - artifactory
+   - data
+     - artifactory
+     - postgresql
+
+Deze mappen de goede permissions gegeven (set_permission.sh)
+
+docker-compose up gedraait, Artifactory start nu op.
+
+Artifactory plugin geinstalleerd op Jenkins
+Geprobeerd om verbinding te maken, geeft volgende error;
+`Error occurred while requesting version information: Connect to artifactory:8083 [artifactory/172.19.0.2] failed: Connection refused (Connection refused)`
+
+In Artifactory de security aangepast (Admin > Security > Security Configuration); 
+ - [v] Allow Basic Read of Build Related Info
+   - [v] Apply on Anonymous Access
+Server Name aangepast (Admin > General Configuration > Server Name) naar JFROG
+
+docker-compose down en docker-compose up gedaan.
+
+Heeft niks verandert.
+
+Nieuwe pipeline gemaakt voor frontend
+
+Nieuwe Dockerfile gemaakt die gebasseerd is op Jenkins waarop Docker staat geinstalleerd.
+Daarna kun je docker gewoon aanroepen in de pipeline.
+
+Hierna heb ik wel wat permissions aan moeten passen van /var/run/docker.sock
+Daarna kun je `docker` aanroepen binnen je Jenkinsfile
+
+Dit werkte nu prima
+
+Nu moesten we dit project nog zippen en archiveren.
+Hiervoor hebben we de Pipeline Utility Steps moeten downloaden waardoor `zip` gebruikt kan worden.
