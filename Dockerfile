@@ -13,7 +13,7 @@ add-apt-repository \
     $(lsb_release -cs) \
     stable" && \
 apt-get update && \
-apt-get -y install docker-ce
-RUN apt-get install -y docker-ce
+apt-get -y install docker-ce docker-compose
+RUN apt-get install -y docker-ce docker-compose
 RUN usermod -a -G docker jenkins
 USER jenkins
